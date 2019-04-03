@@ -1,0 +1,73 @@
+CREATE DATABASE `tranportadora`;
+
+
+
+CREATE TABLE `liststatus` (
+  
+`idStatus` int(11) NOT NULL,
+  
+`situacao` varchar(45) NOT NULL,
+  
+PRIMARY KEY (`idStatus`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `pedido` (
+  
+`idPedido` int(11) NOT NULL,
+  
+`clientID` int(11) NOT NULL,
+  
+`transpID` int(11) NOT NULL,
+  
+`cotacao` int(11) NOT NULL,
+  
+`ordemVenda` int(11) NOT NULL,
+  
+PRIMARY KEY (`idPedido`),
+  
+KEY `fk_ped_tra` (`transpID`),
+  
+CONSTRAINT `fk_ped_tra` FOREIGN KEY (`transpID`) REFERENCES `transportadora` (`transpid`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `pedidostatus` (
+  
+`idPedido` int(11) NOT NULL,
+  
+`StatusAtual` int(11) NOT NULL,
+  
+`Data` date NOT NULL,
+  
+PRIMARY KEY (`idPedido`),
+  
+CONSTRAINT `fk_pst_ped` FOREIGN KEY (`idPedido`) REFERENCES `pedido` (`idpedido`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `transportadora` (
+  
+`transpID` int(11) NOT NULL,
+  
+`Nome` varchar(45) NOT NULL,
+  
+PRIMARY KEY (`transpID`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+alter table pedido add constraint fk_ped_tra foreign key (transpID) references transportadora(transpID);
+
+
+
+alter table pedidostatus add constraint fk_pst_ped foreign key (idPedido) references pedido(idPedido);
+
+
+
+alter table pedidostatus add constraint fk_pst_list foreign key (statusatual) references liststatus(idStatus);
