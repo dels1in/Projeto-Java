@@ -2,72 +2,50 @@ CREATE DATABASE `tranportadora`;
 
 
 
-CREATE TABLE `liststatus` (
-  
-`idStatus` int(11) NOT NULL,
-  
-`situacao` varchar(45) NOT NULL,
-  
-PRIMARY KEY (`idStatus`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-CREATE TABLE `pedido` (
-  
-`idPedido` int(11) NOT NULL,
-  
-`clientID` int(11) NOT NULL,
-  
-`transpID` int(11) NOT NULL,
-  
-`cotacao` int(11) NOT NULL,
-  
-`ordemVenda` int(11) NOT NULL,
-  
-PRIMARY KEY (`idPedido`),
-  
-KEY `fk_ped_tra` (`transpID`),
-  
-CONSTRAINT `fk_ped_tra` FOREIGN KEY (`transpID`) REFERENCES `transportadora` (`transpid`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
-CREATE TABLE `pedidostatus` (
-  
-`idPedido` int(11) NOT NULL,
-  
-`StatusAtual` int(11) NOT NULL,
-  
-`Data` date NOT NULL,
-  
-PRIMARY KEY (`idPedido`),
-  
-CONSTRAINT `fk_pst_ped` FOREIGN KEY (`idPedido`) REFERENCES `pedido` (`idpedido`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
-
 CREATE TABLE `transportadora` (
-  
-`transpID` int(11) NOT NULL,
-  
-`Nome` varchar(45) NOT NULL,
-  
-PRIMARY KEY (`transpID`)
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-alter table pedido add constraint fk_ped_tra foreign key (transpID) references transportadora(transpID);
+`transp_id` int(11) NOT NULL AUTO_INCREMENT,  
+`transp_nome` varchar(255) DEFAULT NULL,  
+PRIMARY KEY (`transp_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 
+CREATE TABLE `pedido`(  
+`item_id` int(11) NOT NULL,  
+`pedido_id` int(11) NOT NULL,  
+`client_id` int(11) NOT NULL,  
+`cotacao_id` int(11) NOT NULL,  
+`data_pedido` datetime DEFAULT NULL,  
+`ordem_venda_id` int(11) NOT NULL,  
+`status_id_status_id` int(11) DEFAULT NULL,  
+`transp_id` int(11) DEFAULT NULL,  
+PRIMARY KEY (`item_id`,`pedido_id`),  
+KEY `FKevpf0qg4mdvta3wwoee4rlutj` (`status_id_status_id`),  
+KEY `FK6iuh9v3xfk5lcgeokcquiihr2` (`transp_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-alter table pedidostatus add constraint fk_pst_ped foreign key (idPedido) references pedido(idPedido);
+
+CREATE TABLE `list_status` (  
+`status_id` int(11) NOT NULL AUTO_INCREMENT,  
+`situacao` varchar(255) DEFAULT NULL,  
+PRIMARY KEY (`status_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 
+CREATE TABLE `preco_range` (  
+`range_id` int(11) NOT NULL AUTO_INCREMENT,  
+`cep_max` int(11) DEFAULT NULL,  
+`cep_min` int(11) DEFAULT NULL,  
+`peso_max` int(11) DEFAULT NULL,  
+`peso_min` int(11) DEFAULT NULL,  
+`valor` float DEFAULT NULL,  
+PRIMARY KEY (`range_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-alter table pedidostatus add constraint fk_pst_list foreign key (statusatual) references liststatus(idStatus);
+
+CREATE TABLE `cotacao` (  
+`cotacao_id` int(11) NOT NULL AUTO_INCREMENT,  
+`cep` int(11) DEFAULT NULL,  
+`peso` int(11) DEFAULT NULL,  
+`valor` float DEFAULT NULL,  
+PRIMARY KEY (`cotacao_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
