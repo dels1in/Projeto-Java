@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Delsin
+Build-Jdk: 10.0.2
+Implementation-Title: transportadora
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.transportadora
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/transportadora
+Created-By: Maven Integration for Eclipse
+
