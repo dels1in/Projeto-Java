@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Formulário do Pedido</title>
+    <link href="arquivo.css" rel="stylesheet">
+    <script type="text/javascript" src="js/validacoes.js"></script>
+    <script type="text/javascript" src="js/util.js"></script>
+    <script type="text/javascript" src="js/pedidorequest.js"></script>
+</head>
+
+<body>
+    <div class="full-body" id="app">
+        <div class="header-site">
+            <h1 class="header-site-h1"><a class="no-link" href="index.html">Transportadora</a></h1>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="listagempedidos.html">Listar Pedidos</a></li>
+                <li><a href="cadastropedidos.html">Cadastrar Pedido</a></li>
+                <li><a href="listagemcotacao.html">Listar Cotação</a></li>
+                <li><a href="cadastrocotacao.html">Cadastrar Cotação</a></li>
+            </ul>
+        </div>
+        <h3>FORMULÁRIO DO PEDIDO</h3>
+        <div class="formulario">
+            
+            <form id="formulario" class="formulario-style" name="formulario">
+                <div>
+                    <label for="pedido">Pedido ID:
+                        <input type="number" id="pedido" name="pedidoid">
+                    </label><br>
+                </div>
+                
+                <div>
+                    <label for="client">Cliente ID:
+                        <input type="number" id="client" name="clientid">
+                    </label><br>
+                </div>
+                <div>
+                    <label for="cotacao">Cotação ID
+                        <input type="number" id="cotacao" name="cotacaoid">
+                    </label><br>
+                </div>
+                <div>
+                    <label for="data-pedido">Data do Pedido
+                        <input type="date" id="data-pedido" name="datapedidoname">
+                    </label><br>
+                </div>
+                <div>
+                    <label for="ordem-venda">Ordem de Venda ID
+                            <input type="number" id="ordem-venda" name="ordemvendaid">
+                    </label><br>
+                </div>
+                <div>
+                    <label for="status">Status:
+                        <select id="status" name="statusid">
+                            <option value="0">-----------------</option>
+                            <option value="1">Aguardando Pagamento</option>
+                            <option value="2">Checando Compra</option>
+                            <option value="3">Pedido Faturado</option>
+                            <option value="4">Pedido Empacotado</option>
+                            <option value="5">Pedido Enviado</option>
+                            <option value="6">Pedido Entregue</option>
+                        </select>
+                    </label><br>
+                </div>
+                <div>
+                    <label for="transp">Transportadora:
+                        <select id="transp" name="transpid">
+                            <option value="0">-----------------</option>
+                            <option value="1">Chico & Bento T.</option>
+                            <option value="2">Ornitorrinco's T.</option>
+                            <option value="3">Niemeyer T.</option>
+                        </select>
+                    </label>
+                </div>
+                
+                <div>
+                    <center><button onclick="getFormElementsPedido()">Enviar</button></center>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

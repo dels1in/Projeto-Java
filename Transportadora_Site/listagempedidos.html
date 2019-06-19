@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    <title>Transportadora</title>
+        <link href="arquivo.css" rel="stylesheet">
+        <script type="text/javascript" src="js/util.js"></script>
+        <script type="text/javascript" src="js/pedidorequest.js"></script>
+</head>
+
+<body>   
+  <div class="full-body" id="app">
+    <div class="header-site">
+        <h1 class="header-site-h1"><a class="no-link" href="index.html">Transportadora</a></h1>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="listagempedidos.html">Listar Pedidos</a></li>
+            <li><a href="cadastropedidos.html">Cadastrar Pedido</a></li>
+            <li><a href="listagemcotacao.html">Listar Cotação</a></li>
+            <li><a href="cadastrocotacao.html">Cadastrar Cotação</a></li>
+        </ul>
+    </div>
+  <center>
+    <div class="body-site">
+      <h3>PEDIDOS</h3>
+      <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>PEDIDO ID</th>
+          <th>SITUAÇÃO</th>
+          <th>DATA STATUS</th>
+          <th>COTAÇÃO</th>
+        </tr>
+      </thead>
+      <tbody id="pedidosTable"></tbody>
+    </table>
+    </div>
+  </center>
+  </div>
+</body>
+
+</html>

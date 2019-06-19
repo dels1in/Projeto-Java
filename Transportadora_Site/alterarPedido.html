@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alterar</title>
+    <link href="arquivo.css" rel="stylesheet">
+    <script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/pedidorequest.js"></script>
+    </head>
+
+    <body>   
+        <div class="full-body" id="app">
+            <div class="header-site">
+            <h1 class="header-site-h1"><a class="no-link" href="index.html">Transportadora</a></h1>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="listagempedidos.html">Listar Pedidos</a></li>
+                <li><a href="cadastropedidos.html">Cadastrar Pedido</a></li>
+                <li><a href="listagemcotacao.html">Listar Cotação</a></li>
+                <li><a href="cadastrocotacao.html">Cadastrar Cotação</a></li>
+            </ul>
+        </div>
+        <h3>ALTERAÇÃO DO PEDIDO</h3>
+        <div class="formulario">
+            <form id="formulario" class="formulario-style" name="formulario">
+                <div id="half-form"></div>
+                <div>
+                    <label for="status">Status:
+                        <select id="status" name="statusid">
+                            <option value="0">-----------------</option>
+                            <option value="1">Aguardando Pagamento</option>
+                            <option value="2">Checando Compra</option>
+                            <option value="3">Pedido Faturado</option>
+                            <option value="4">Pedido Empacotado</option>
+                            <option value="5">Pedido Enviado</option>
+                            <option value="6">Pedido Entregue</option>
+                        </select>
+                    </label><br>
+                </div>               
+                <div>
+                    <center><button onclick="getAlteracaoForm()">Enviar</button></center>
+                </div>
+            </form>
+            
+        </div>  
+    </div>
+</html>
